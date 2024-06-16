@@ -1,12 +1,13 @@
 import { Sequelize } from "sequelize";
 import dotenv from "dotenv";
+import * as pg from "pg";
 
 // Memuat variabel lingkungan dari file .env
 dotenv.config();
 
 // Membuat instance Sequelize dengan koneksi PostgreSQL
 const db = new Sequelize(process.env.POSTGRES_URL, {
-  dialectModule: require("pg"),
+  dialectModule: pg,
 });
 
 // Menguji koneksi ke database
