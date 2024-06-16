@@ -6,13 +6,7 @@ dotenv.config();
 
 // Membuat instance Sequelize dengan koneksi PostgreSQL
 const db = new Sequelize(process.env.POSTGRES_URL, {
-  dialect: "postgres",
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false, // Untuk sertifikat self-signed
-    },
-  },
+  dialectModule: require("pg"),
 });
 
 // Menguji koneksi ke database
