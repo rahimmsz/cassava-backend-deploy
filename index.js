@@ -62,6 +62,6 @@ app.use(SearchRoute);
 
 app.listen(process.env.APP_PORT, () => {
   console.log(
-    `Server up and running... at http://localhost:${process.env.APP_PORT}`
+    `Server up and running... at http://localhost:${process.env.PORT}`
   );
 });
