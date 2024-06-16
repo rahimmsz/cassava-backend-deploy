@@ -1,12 +1,10 @@
-const { Pool } = require("pg");
+import { Sequelize } from "sequelize";
+import dotenv from "dotenv";
+dotenv.config();
 
-const pool = new Pool({
-  connectionString: process.env.POSTGRES_URL + "?sslmode=require",
+const db = new Sequelize(process.env.DATABASE_NAME, "root", "", {
+  host: "localhost",
+  dialect: "mysql",
 });
 
-pool.connect((err) => {
-  if (err) throw err;
-  console.log("Connect to PostgreSQL successfully!");
-});
-
-module.exports = pool;
+export default db;

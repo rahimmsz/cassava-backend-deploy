@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import pool from "../config/Database.js";
+import db from "../config/Database.js";
 
 const { DataTypes } = Sequelize;
 // Fungsi untuk menghasilkan string acak dengan panjang tertentu
@@ -14,7 +14,7 @@ function generateRandomString(length) {
   return result;
 }
 
-const Users = pool.define(
+const Users = db.define(
   "users",
   {
     uuid: {
