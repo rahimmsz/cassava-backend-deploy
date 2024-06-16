@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import db from "../config/Database.js";
+import pool from "../config/Database.js";
 import Users from "./UserModel.js";
 
 const { DataTypes } = Sequelize;
@@ -15,7 +15,7 @@ function generateRandomString(length) {
   return result;
 }
 
-const Logistik = db.define(
+const Logistik = pool.define(
   "data_logistik",
   {
     idPengiriman: {

@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import session from "express-session";
 import dotenv from "dotenv";
-import db from "./config/Database.js";
+import pool from "./config/Database.js";
 import SequelizeStore from "connect-session-sequelize";
 import UserRoute from "./routes/UserRoute.js";
 import OrderPemanen from "./routes/OrderRoute.js";
@@ -19,12 +19,12 @@ app.use("/profile", express.static("uploads/img/profile"));
 const sessionStore = SequelizeStore(session.Store);
 
 const store = new sessionStore({
-  db: db,
+  pool: pool,
 });
 
 // (async () => {
 //     try {
-//         await db.sync();
+//         await pool.sync();
 //         console.log("All models were synchronized successfully.");
 //     } catch (error) {
 //         console.error('Error syncing database:', error);
